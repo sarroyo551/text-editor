@@ -18,13 +18,38 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        title: 'JATE',
+        template: './index.html',
+      }),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
+      }),
+      new WebpackPwaManifest({
+        name: 'Just Another Text Editor',
+        short_name: 'JATE',
+        description: 'A simple text editor for the web.',
+        startURl: '/',
+        publicPath: '/',
+        icons: [{
+          src: path.resolve('src/images/logo.png'),
+          sizes: [96, 128, 192, 256, 384, 512],
+          destination: path.join('images', 'icons')
+        }]
+      })
     ],
 
     module: {
-      rules: [
-        
-      ],
+      rules: [{
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {loader: 'babel-loader', options: {presets: ['@babel/preset-env'], plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/plugin-transform-runtime']}},
+      }],
     },
   };
 };
