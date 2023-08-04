@@ -12,7 +12,8 @@
     "server": "npm run server --prefix server",
     "build": "npm run build --prefix client",
     "install": "npm install --prefix client && npm install --prefix server",
-    "client": "npm start --prefix client"
+    "client": "npm start --prefix client",
+    "heroku-prebuild": "cd client && npm install --dev"
   },
   "keywords": [],
   "author": "",
