@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "18.16.1"
+  },
   "scripts": {
     "start:dev": "concurrently \"npm run client\" \"npm run server\"",
     "start": "npm start --prefix server",
