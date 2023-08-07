@@ -37,6 +37,7 @@ node_modules/
 /client/node_modules/
 /server/node_modules/
 /client/dist/
+/client/package-lock.json
 jspm_packages/
 
 # TypeScript v1 declaration files
